@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#12161a">
+<title>نایلون حباب‌دار</title>
+<style>
+  *{box-sizing:border-box;}
+  html,body{
+    height:100%;margin:0;padding:0;overflow:hidden;
+    background:#0b0d10;
+    font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+    -webkit-user-select:none;user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:none;overscroll-behavior:none;
+    cursor:pointer;
+  }
+  *{cursor:pointer;}
+
+  /* ══════════════════════════════════════════════════════════
+     ورق نایلون — بافت پلاستیک کهنه و غبار گرفته
+     ══════════════════════════════════════════════════════════ */
+  #wrap{
+    --s:44px;
+    --cw:44px;
+    --ch:44px;
+    position:fixed;inset:0;
+    display:grid;
+    justify-content:center;
+    align-content:center;
+    overflow:hidden;
+    cursor:pointer;
+
+    background-image:
+      /* جوش‌های عمودی */
+      repeating-linear-gradient(90deg,
+        rgba(85,105,125,.20) 0 1px,
+        rgba(255,255,255,.05) 1px 2px,
+        rgba(0,0,0,0) 2px var(--cw)),
+      /* جوش‌های افقی */
+      repeating-linear-gradient(0deg,
+        rgba(85,105,125,.20) 0 1px,
+        rgba(255,255,255,.05) 1px 2px,
+        rgba(0,0,0,0) 2px var(--ch)),
+
+      /* چین‌های بلند نایلون */
+      repeating-linear-gradient(21deg,
+        rgba(255,255,255,.13) 0 1px,
+        rgba(255,255,255,0) 1px 13px),
+      repeating-linear-gradient(-41deg,
+        rgba(70,90,110,.11) 0 1px,
+        rgba(0,0,0,0) 1px 19px),
+      repeating-linear-gradient(68deg,
+        rgba(255,255,255,.07) 0 1px,
+        rgba(0,0,0,0) 1px 27px),
+      repeating-linear-gradient(-77deg,
+        rgba(60,80,105,.09) 0 1px,
+        rgba(0,0,0,0) 1px 34px),
+
+      /* درخشش‌های نرم */
+      radial-gradient(48% 32% at 14% 8%,  rgba(255,255,255,.55), transparent 68%),
+      radial-gradient(38% 26% at 87% 79%, rgba(255,255,255,.42), transparent 72%),
+      radial-gradient(52% 36% at 62% 34%, rgba(255,255,255,.22), transparent 78%),
+      radial-gradient(30% 22% at 30% 88%, rgba(255,255,255,.30), transparent 74%),
+
+      /* رنگ پایه — پلاستیک خاکستری-نقره‌ای کهنه */
+      linear-gradient(158deg,
+        #e9ecee 0%,
+        #dde2e6 22%,
+        #ccd3d9 45%,
+        #bcc4cc 68%,
+        #adb6bf 86%,
+        #a0aab4 100%);
+  }
+
+  /* چین‌خوردگی ارگانیک + دانه‌ی ریز */
+  #wrap::before{
+    content:"";
+    position:absolute;inset:0;
+    pointer-events:none;z-index:1;
+    opacity:.55;
+    mix-blend-mode:soft-light;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.018' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23w)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.06' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23v)'/%3E%3C/svg%3E");
+    background-size:600px 600px, 300px 300px;
+  }
+
+  /* هاله‌ی گرم و کهنه‌گی */
+  #wrap::after{
+    content:"";
+    position:absolute;inset:0;
+    pointer-events:none;z-index:1;
+    mix-blend-mode:multiply;
+    opacity:.55;
+    background:
+      radial-gradient(130% 105% at 50% 25%,
+        rgba(255,248,232,0) 30%,
+        rgba(150,128,96,.10) 70%,
+        rgba(74,55,30,.24) 100%);
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     هر حباب نایلونی
+     ══════════════════════════════════════════════════════════ */
+  .b{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    z-index:2;
+    cursor:pointer;
+    background:radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 52%,
+      rgba(255,255,255,.08) 63%,
+      rgba(110,130,150,.11) 74%,
+      rgba(255,255,255,0) 86%);
+  }
+
+  .b::before{
+    content:"";
+    width:var(--s);height:var(--s);
+    border-radius:50%;
+    position:relative;
+
+    background:
+      radial-gradient(circle at 30% 20%,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,.94) 4%,
+        rgba(255,255,255,.42) 13%,
+        rgba(255,255,255,0) 30%),
+      radial-gradient(circle at 25% 29%,
+        rgba(255,255,255,.8) 0%,
+        rgba(255,255,255,0) 8%),
+      radial-gradient(circle at 72% 80%,
+        rgba(255,255,255,.5) 0%,
+        rgba(255,255,255,0) 24%),
+      radial-gradient(circle at 50% 53%,
+        rgba(255,255,255,0) 46%,
+        rgba(130,148,168,.22) 68%,
+        rgba(72,95,120,.40) 85%,
+        rgba(48,68,92,.52) 100%),
+      radial-gradient(circle at 43% 37%,
+        #fafbfc 0%,
+        #eef1f4 18%,
+        #d9dfe5 42%,
+        #bcc5ce 66%,
+        #9daab7 86%,
+        #8794a3 100%);
+
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.5),
+      inset -3px -5px 11px rgba(255,255,255,.52),
+      inset 4px 7px 15px rgba(38,70,110,.28),
+      0 3px 7px rgba(20,45,80,.32),
+      0 1px 2px rgba(10,30,60,.28),
+      0 0 0 1px rgba(255,255,255,.18);
+
+    transform:scale(1);
+    transition:transform .1s ease-out;
+    will-change:transform;
+  }
+
+  @media (hover:hover){
+    .b:not(.pop):hover::before{ transform:scale(1.08); }
+  }
+
+  .b::after{
+    content:"";
+    position:absolute;
+    width:var(--s);height:var(--s);
+    border-radius:50%;
+    border:2px solid rgba(215,238,255,.95);
+    opacity:0;transform:scale(.5);
+    pointer-events:none;
+    z-index:3;
+  }
+
+  /* ── حالت ترکیده ── */
+  .b.pop::before{
+    background:
+      repeating-linear-gradient(124deg,
+        rgba(255,255,255,.13) 0 1px,
+        rgba(0,0,0,0) 1px 5px),
+      repeating-linear-gradient(47deg,
+        rgba(0,0,0,.11) 0 1px,
+        rgba(0,0,0,0) 1px 7px),
+      repeating-linear-gradient(-27deg,
+        rgba(255,255,255,.07) 0 1px,
+        rgba(0,0,0,0) 1px 4px),
+      radial-gradient(circle at 37% 31%,
+        rgba(255,255,255,.48) 0%,
+        rgba(255,255,255,.10) 18%,
+        rgba(255,255,255,0) 45%),
+      radial-gradient(circle at 50% 50%,
+        #8b98a6 0%,
+        #6c7c8b 38%,
+        #52616f 70%,
+        #3e4c5a 100%);
+
+    box-shadow:
+      inset 3px 4px 11px rgba(12,28,48,.55),
+      inset -2px -3px 6px rgba(255,255,255,.12),
+      inset 0 0 0 1px rgba(255,255,255,.20),
+      0 1px 1px rgba(10,25,45,.32),
+      0 0 0 1px rgba(120,140,160,.25);
+
+    animation:popAnim .22s cubic-bezier(.28,1.7,.45,1) both;
+  }
+
+  @keyframes popAnim{
+    0%  { transform:scale(1);    }
+    35% { transform:scale(1.18); }
+    100%{ transform:scale(.86);  }
+  }
+
+  .b.pop::after{ animation:ring .45s cubic-bezier(.2,.9,.3,1) both; }
+  @keyframes ring{
+    0%  { opacity:.9; transform:scale(.55); }
+    100%{ opacity:0;  transform:scale(1.55); }
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     لایه‌ی غبار
+     ══════════════════════════════════════════════════════════ */
+  #dust{
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:4;
+    mix-blend-mode:multiply;
+    opacity:.85;
+    background-image:
+      radial-gradient(125% 95% at 50% 22%,
+        rgba(255,248,232,0) 35%,
+        rgba(150,124,88,.09) 72%,
+        rgba(80,58,32,.20) 100%),
+
+      radial-gradient(circle at 8%  15%, rgba(96,74,48,.55) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 17% 62%, rgba(96,74,48,.42) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 24% 34%, rgba(96,74,48,.50) 0 1.2px, transparent 1.9px),
+      radial-gradient(circle at 33% 82%, rgba(96,74,48,.35) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 41% 12%, rgba(96,74,48,.48) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 48% 55%, rgba(96,74,48,.38) 0 1.2px, transparent 1.9px),
+      radial-gradient(circle at 56% 28%, rgba(96,74,48,.52) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 63% 74%, rgba(96,74,48,.40) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 71% 45%, rgba(96,74,48,.46) 0 1.2px, transparent 1.9px),
+      radial-gradient(circle at 79% 18%, rgba(96,74,48,.38) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 86% 66%, rgba(96,74,48,.50) 0 1px, transparent 1.7px),
+      radial-gradient(circle at 92% 39%, rgba(96,74,48,.42) 0 1.2px, transparent 1.9px),
+      radial-gradient(circle at 95% 88%, rgba(96,74,48,.35) 0 1px, transparent 1.6px),
+
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='190' height='190' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     وینیت
+     ══════════════════════════════════════════════════════════ */
+  #veil{
+    position:fixed;inset:0;pointer-events:none;z-index:5;
+    background:
+      radial-gradient(128% 100% at 50% 45%,
+        rgba(0,0,0,0) 52%,
+        rgba(5,10,16,.38) 82%,
+        rgba(5,10,16,.66) 100%);
+  }
+</style>
+</head>
+<body>
+
+<div id="wrap" aria-label="ورق نایلون حباب‌دار"></div>
+<div id="dust"></div>
+<div id="veil"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  const wrap = document.getElementById('wrap');
+
+  /* ══════════════════ صدا ══════════════════ */
+  let actx = null, master = null, noiseBuf = null;
+
+  function initAudio(){
+    if (actx){
+      if (actx.state === 'suspended') actx.resume();
+      return;
+    }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+
+    actx = new AC();
+
+    master = actx.createGain();
+    master.gain.value = 0.9;
+
+    const comp = actx.createDynamicsCompressor();
+    comp.threshold.value = -12;
+    comp.knee.value = 8;
+    comp.ratio.value = 10;
+    comp.attack.value = 0.002;
+    comp.release.value = 0.14;
+
+    master.connect(comp);
+    comp.connect(actx.destination);
+
+    const len = Math.floor(actx.sampleRate * 0.22);
+    noiseBuf = actx.createBuffer(1, len, actx.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+  }
+
+  function playPop(){
+    if (!actx || !noiseBuf) return;
+    const t = actx.currentTime + 0.001;
+    const p = 0.85 + Math.random() * 0.45;
+
+    const src = actx.createBufferSource();
+    src.buffer = noiseBuf;
+    src.playbackRate.value = p;
+
+    const bp = actx.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.frequency.value = 950 + Math.random() * 900;
+    bp.Q.value = 0.85;
+
+    const hp = actx.createBiquadFilter();
+    hp.type = 'highpass';
+    hp.frequency.value = 430;
+
+    const g = actx.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.42, t + 0.004);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.09);
+
+    src.connect(bp); bp.connect(hp); hp.connect(g); g.connect(master);
+    src.start(t); src.stop(t + 0.13);
+
+    const o = actx.createOscillator();
+    o.type = 'triangle';
+    o.frequency.setValueAtTime(1600 * p, t);
+    o.frequency.exponentialRampToValueAtTime(170, t + 0.06);
+
+    const og = actx.createGain();
+    og.gain.setValueAtTime(0.20, t);
+    og.gain.exponentialRampToValueAtTime(0.0001, t + 0.075);
+
+    o.connect(og); og.connect(master);
+    o.start(t); o.stop(t + 0.10);
+  }
+
+  /* ══════════════════ ساخت ورق ══════════════════ */
+  function build(){
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+
+    const target = W < 560 ? 46 : 54;
+    const cols = Math.max(1, Math.round(W / target));
+    const rows = Math.max(1, Math.round(H / target));
+
+    const cw = W / cols;
+    const ch = H / rows;
+    const s  = Math.min(cw, ch) * 0.86;
+
+    wrap.style.setProperty('--s',  s.toFixed(2) + 'px');
+    wrap.style.setProperty('--cw', cw.toFixed(2) + 'px');
+    wrap.style.setProperty('--ch', ch.toFixed(2) + 'px');
+    wrap.style.gridTemplateColumns = `repeat(${cols}, ${cw.toFixed(2)}px)`;
+    wrap.style.gridAutoRows = ch.toFixed(2) + 'px';
+
+    const frag = document.createDocumentFragment();
+    const total = cols * rows;
+    for (let i = 0; i < total; i++){
+      const d = document.createElement('div');
+      d.className = 'b';
+      frag.appendChild(d);
+    }
+    wrap.innerHTML = '';
+    wrap.appendChild(frag);
+  }
+
+  /* ══════════════════ ترکاندن ══════════════════ */
+  function popEl(el){
+    if (!el || !el.classList) return;
+    if (!el.classList.contains('b')) return;
+    if (el.classList.contains('pop')) return;
+
+    el.classList.add('pop');
+    playPop();
+
+    if (navigator.vibrate){ try { navigator.vibrate(7); } catch(e){} }
+  }
+
+  function popAt(x, y){
+    const el = document.elementFromPoint(x, y);
+    if (!el) return;
+    const b = el.closest ? el.closest('.b') : (el.classList && el.classList.contains('b') ? el : null);
+    if (b) popEl(b);
+  }
+
+  /* ══════════════════ رویدادها ══════════════════ */
+  let down = false;
+
+  wrap.addEventListener('pointerdown', e => {
+    initAudio();
+    down = true;
+    if (wrap.setPointerCapture){
+      try { wrap.setPointerCapture(e.pointerId); } catch(err){}
+    }
+    popAt(e.clientX, e.clientY);
+    e.preventDefault();
+  }, { passive: false });
+
+  wrap.addEventListener('pointermove', e => {
+    if (!down) return;
+    popAt(e.clientX, e.clientY);
+  }, { passive: true });
+
+  const endDrag = () => { down = false; };
+  window.addEventListener('pointerup', endDrag);
+  window.addEventListener('pointercancel', endDrag);
+  window.addEventListener('blur', endDrag);
+
+  /* جلوگیری از منوی راست‌کلیک و بزرگ‌نمایی دوبار-ضربه */
+  wrap.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('gesturestart', e => e.preventDefault());
+
+  /* ══════════════════ ری‌سایز ══════════════════ */
+  let rt = null;
+  function onResize(){
+    clearTimeout(rt);
+    rt = setTimeout(build, 180);
+  }
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', onResize);
+
+  /* ══════════════════ شروع ══════════════════ */
+  build();
+})();
+</script>
+</body>
+</html>
